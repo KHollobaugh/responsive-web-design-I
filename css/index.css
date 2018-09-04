@@ -55,6 +55,7 @@ table {
 html, body {
     height: 100%;
     font-family: 'Titillium Web', sans-serif;
+    font-size: 62.5%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -64,43 +65,50 @@ h1, h2, h3, h4, h5 {
 }
 
 .container {
-  width: 880px;
+  max-width: 880px;
   /* TB LR */
   margin: 0 auto;
+  font-size: 1.6rem;
 }
 
 /* header */
 
-header nav {
-  display: inline-block;
-  width: 691px;
+.container header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container header nav {
+  display: flex;
+  justify-content: space-around;
+  max-width: 691px;
   vertical-align: top;
   margin-top: 35px;
 }
 
-header nav a {
-  display: inline-block;
+.container header nav a {
   margin-right: 65px;
   font-size: 14px;
   color: gray;
   text-decoration: none;
 }
 
-header nav a:hover {
+.container header nav a:hover {
   text-decoration: underline;
 }
 
-header nav a:first-child {
+.container header nav a:first-child {
   margin-left: 0;
 }
 
-header nav a:last-child {
+.container header nav a:last-child {
   margin-right: 0;
 }
 
-header .logo {
-  display: inline-block;
+.container header .logo {
   margin-top: 25px;
+  max-width: 100%;
+  height: auto;
 }
 
 /* cta */
@@ -142,12 +150,13 @@ header .logo {
 
 .main-content .top-content {
   padding: 0 10px;
+  display: flex;
+  
 }
 
 .main-content .top-content .text-content {
-  width: 410px;
-  display: inline-block;
-  margin-right: 34px;
+  max-width: 45%;
+  margin-right: 5%;
 }
 
 .main-content .top-content .text-content:last-child {
@@ -161,12 +170,14 @@ header .logo {
 .main-content .bottom-content {
   margin-top: 37px;
   padding: 0 10px;
+  display: flex;
 }
 
 .main-content .bottom-content .text-content {
-  width: 275px;
-  display: inline-block;
-  margin-right: 12px;
+  width: 30%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content .bottom-content .text-content:last-child {
@@ -186,63 +197,90 @@ header .logo {
 footer {
   margin: 32px 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 1.6rem;
 }
+
+
+
 
 @media (max-width: 800px) {
     .container {
-        width: 90%;
-        justify-content: center;
-    }
-
-    header {
+        width: 100%;
         display: flex;
+        justify-content: center;
         flex-direction: column;
     }
 
-    header img {
-
+   .container header {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
+    .container header nav {
+      width: 100%;
+      order: 1;
+    }
+
+    .container header img {
+      width: 40%;
+      height: auto;
+      order: 0;
+    }
+
+    .cta img {
+      display: none;
+    }
+
+    .main-content img {
+      max-width: 100%;
+      height: auto;
+  }
+
+
 }
+
+
+
 
 
   @media (max-width: 500px) {
 
         .container {
-            width: 500px;
+           width: 100%
         }
     
-        header {
+        .container header {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
             margin: 0px;
             padding: 0px;
         }
 
         header img {
             display: flex;
-            order: 0;
             width: 50%;
+            height: auto;
         }
 
-        header nav {
+        .container header nav {
             display: flex;
-            order: 1;
             flex-direction: column;
             width: 100%;
-            font-size: 40px;
+            align-items: center;
         }
 
-        nav a {
+       .container header nav a {
             display: flex;
             border-bottom: 1px solid black;
-            padding: 20px 0px;
-            text-align: center;
-            margin: 0px;
+            padding: 4% 0%;
+            font-size: 2rem;
+            margin: 0%;
             width: 100%;
+            justify-content: center;
         }
 
         .cta img {
@@ -250,35 +288,52 @@ footer {
         }
 
         .cta {
+            width: 100%;
             border: none;
+            padding: 10% 0%;
+            align-items: center;
+
+        }
+
+        .cta .cta-text {
+          font-size: 6.5rem;
+          margin: 0;
+          padding: 0%;
+          text-align: center;
+          width: 100%;
         }
 
         .main-content {
             width: 100%;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             border-top: 2px solid black;
-            margin: 0px 10px;
+            margin: 0%;
         }
 
         .main-content img {
             width: 100%;
             height: auto;
-            justify-content: center;
         }
 
+      .top-content {
+        flex-wrap: wrap;
+      }
+
     .text-content {
-        margin: 25px 0px;
+        flex-direction: column;
+        margin: 5% 0%;
+        padding: 0%;
         width: 100%;
-        align-content: stretch;
+        min-width: 350px;
     }
 
+
     .bottom-content {
-        display: flex;
-        flex-direction: column;
-        align-content: stretch;
-        width: 100%;
-        flex-wrap: nowrap;
+      flex-wrap: wrap;
+      margin: 0%;
+      padding: 0%;
     }
+  
 
 }
